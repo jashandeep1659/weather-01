@@ -38,63 +38,69 @@ const Home = () => {
             <div className="content">
                 <div className="main-card">
                     <div className="current-temp">
+                        <h5>Temp 🌡</h5>
+                        <h1>
+                            {isReadyComple
+                                ? Math.round(weather.main.temp - 273.15)
+                                : "..."}
+                            °C
+                        </h1>
+                    </div>
+                    <div className="detail-card">
+                        <h1>Wind 💨</h1>
                         <p>
-                            Current Temp🌡:{" "}
-                            <span>
-                                {isReadyComple
-                                    ? Math.round(weather.main.temp - 273.15)
-                                    : "..."}
-                                °C
-                            </span>
+                            Speed:{" "}
+                            {isReadyComple
+                                ? Math.round(weather.wind.speed)
+                                : "..."}
+                            Km/h
                         </p>
                         <p>
-                            Feel Like🤒:{" "}
-                            <span>
-                                {isReadyComple
-                                    ? Math.round(
-                                          weather.main.feels_like - 273.15
-                                      )
-                                    : "..."}
-                                °C
-                            </span>
+                            Deg:{" "}
+                            {isReadyComple
+                                ? Math.round(weather.wind.deg)
+                                : "..."}
+                            Km/h
+                        </p>
+                        <p>
+                            Gust: {isReadyComple ? weather.wind.gust : "..."}
+                            Km/h
                         </p>
                     </div>
-                    <div className="cloud-detail">
-                        <h1>Other Details</h1>
-                        <div className="detail">
-                            <h2>
-                                Clouds:{" "}
-                                {isReadyComple
-                                    ? Math.round(weather.clouds.all)
-                                    : "..."}
-                                %
-                            </h2>
-                            <h2>
-                                Variation:{" "}
-                                {isReadyComple
-                                    ? Math.round(weather.main.temp_min - 273.15)
-                                    : "..."}
-                                °C to{" "}
-                                {isReadyComple
-                                    ? Math.round(weather.main.temp_max - 273.15)
-                                    : "..."}
-                                °C
-                            </h2>
-                            <h2>
-                                Humidity:{" "}
-                                {isReadyComple
-                                    ? Math.round(weather.main.humidity)
-                                    : "..."}
-                                %
-                            </h2>
-                            <h2>
-                                Presssure:{" "}
-                                {isReadyComple
-                                    ? Math.round(weather.main.pressure)
-                                    : "..."}
-                                %
-                            </h2>
-                        </div>
+
+                    <div className="detail-card">
+                        <h1>Rain 🌧</h1>
+                        <p>
+                            Clouds:{" "}
+                            {isReadyComple
+                                ? Math.round(weather.clouds.all)
+                                : "..."}
+                        </p>
+                        <p>
+                            Rain: {isReadyComple ? weather.visibility : "..."}
+                        </p>
+                        <p>
+                            Gust: {isReadyComple ? weather.wind.gust : "..."}
+                            Km/h
+                        </p>
+                    </div>
+                    <div className="detail-card">
+                        <h1>Others ⛅</h1>
+                        <p>
+                            Sunrise:{" "}
+                            {isReadyComple ? weather.sys.sunrise : "..."}
+                        </p>
+                        <p>
+                            Sunset:{" "}
+                            {isReadyComple ? weather.sys.sunrise : "..."}
+                        </p>
+                        <p>
+                            Feel Like:{" "}
+                            {isReadyComple
+                                ? Math.round(weather.main.feels_like - 273)
+                                : "..."}
+                            °C
+                        </p>
                     </div>
                 </div>
             </div>

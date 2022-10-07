@@ -70,13 +70,13 @@ const Home = () => {
                                 %
                             </h2>
                             <h2>
-                                Temp varry:{" "}
+                                Variation:{" "}
                                 {isReadyComple
-                                    ? Math.round(weather.main.temp_min)
+                                    ? Math.round(weather.main.temp_min - 273.15)
                                     : "..."}
                                 °C to{" "}
                                 {isReadyComple
-                                    ? Math.round(weather.main.temp_max)
+                                    ? Math.round(weather.main.temp_max - 273.15)
                                     : "..."}
                                 °C
                             </h2>
